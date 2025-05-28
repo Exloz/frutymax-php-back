@@ -29,3 +29,7 @@ Route::apiResource('compras', CompraController::class);
 
 // Rutas para Ventas (CRUD completo)
 Route::apiResource('ventas', VentaController::class);
+
+Route::get('/ping', function () {
+    return response()->json(['pong' => true]);
+});
