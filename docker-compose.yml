@@ -10,6 +10,9 @@ services:
             context: .
             dockerfile: Dockerfile
             target: app
+        depends_on:
+            db:
+                condition: service_healthy
         image: frutymax_app:latest
         env_file:
             - .env
@@ -51,7 +54,7 @@ services:
             test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
             interval: 5s
             timeout: 5s
-            retries: 5
+            retries: 10
 
 volumes:
     mysql_data:
