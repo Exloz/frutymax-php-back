@@ -36,8 +36,7 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
@@ -155,10 +154,385 @@ endpoints:
         headers:
           content-type: 'text/html; charset=UTF-8'
           cache-control: 'no-cache, private'
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
+          vary: Origin
         description: null
         custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/login
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: validation.email.
+        required: true
+        example: gbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: gbailey@example.net
+      password: architecto
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/register
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: validation.max.
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'validation.email validation.max.'
+        required: true
+        example: zbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: validation.min.
+        required: true
+        example: '-0pBNvYgxw'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: validation.max.
+        required: false
+        example: aykcmyuwpwlvqwrs
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address:
+        name: address
+        description: validation.max.
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: b
+      email: zbailey@example.net
+      password: '-0pBNvYgxw'
+      phone: aykcmyuwpwlvqwrs
+      address: i
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/logout
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/auth/profile
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/auth/profile
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: validation.max.
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: validation.max.
+        required: false
+        example: ngzmiyvdljnikhwa
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address:
+        name: address
+        description: validation.max.
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: b
+      phone: ngzmiyvdljnikhwa
+      address: 'y'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/auth/verify
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/change-password
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      current_password:
+        name: current_password
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      new_password:
+        name: new_password
+        description: validation.min.
+        required: true
+        example: ngzmiyvdljnikhwaykcmyuwpwl
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      current_password: architecto
+      new_password: ngzmiyvdljnikhwaykcmyuwpwl
+    fileParameters: []
+    responses: []
     responseFields: []
     auth: []
     controller: null
@@ -191,12 +565,11 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"message":"API funcionando correctamente \ud83d\ude80","timestamp":"2025-05-27T02:04:19.612029Z"}'
+        content: '{"success":true,"message":"API funcionando correctamente \ud83d\ude80","data":{"timestamp":"2025-06-03T05:17:37.716693Z","version":"1.0.0"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
@@ -208,13 +581,13 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/categorias
+    uri: api/products
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Display a listing of the products with pagination and filters.'
       description: ''
       authenticated: false
       custom: []
@@ -231,12 +604,61 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[]'
+        content: '{"success":true,"data":[{"id":1,"supplier_id":1,"name":"repellendus","description":"Nostrum vero voluptatem quis nam.","price":"43.19","unit":"kg","category":"Tub\u00e9rculos","stock":368,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/00ffdd?text=et","nutritional_info":"{\"calories\":278,\"protein\":1,\"carbs\":56.6,\"fat\":15.6}","origin":"San Marino","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}},{"id":2,"supplier_id":1,"name":"eos","description":"Omnis hic nesciunt illo blanditiis saepe magni.","price":"42.12","unit":"kg","category":"Verduras","stock":0,"status":"out_of_stock","image":null,"nutritional_info":"{\"calories\":422,\"protein\":11.7,\"carbs\":10.4,\"fat\":2.4}","origin":"Bermuda","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}},{"id":3,"supplier_id":1,"name":"ratione","description":"Quidem iusto sunt ut praesentium.","price":"89.16","unit":"g","category":"Otros","stock":299,"status":"active","image":null,"nutritional_info":"{\"calories\":365,\"protein\":22.2,\"carbs\":85,\"fat\":11.2}","origin":"Macedonia","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}},{"id":4,"supplier_id":1,"name":"itaque","description":"Amet iste quia laboriosam magnam.","price":"52.85","unit":"unidad","category":"Otros","stock":56,"status":"active","image":null,"nutritional_info":"{\"calories\":41,\"protein\":2.3,\"carbs\":29.2,\"fat\":15.7}","origin":"Mongolia","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}},{"id":5,"supplier_id":1,"name":"ipsa","description":"Iure soluta dolorem incidunt sit occaecati.","price":"30.43","unit":"g","category":"Frutas","stock":852,"status":"active","image":null,"nutritional_info":"{\"calories\":20,\"protein\":9.3,\"carbs\":3.8,\"fat\":14.2}","origin":"Switzerland","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}},{"id":6,"supplier_id":1,"name":"quam","description":"Voluptatum eos quaerat nihil magnam.","price":"81.59","unit":"lb","category":"Frutas","stock":804,"status":"active","image":null,"nutritional_info":"{\"calories\":443,\"protein\":9.4,\"carbs\":81.1,\"fat\":10.3}","origin":"Myanmar","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}},{"id":7,"supplier_id":1,"name":"ipsam","description":"Mollitia in id laudantium suscipit magnam asperiores qui.","price":"11.85","unit":"kg","category":"Frutas","stock":861,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/0077dd?text=sint","nutritional_info":"{\"calories\":276,\"protein\":21.3,\"carbs\":11.9,\"fat\":10.1}","origin":"Iran","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}},{"id":8,"supplier_id":1,"name":"enim","description":"Et vel maiores id assumenda molestiae placeat.","price":"93.17","unit":"unidad","category":"Hortalizas","stock":783,"status":"active","image":null,"nutritional_info":"{\"calories\":407,\"protein\":12.7,\"carbs\":53,\"fat\":3.9}","origin":"Namibia","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}},{"id":9,"supplier_id":1,"name":"sequi","description":"Praesentium sed est et ratione.","price":"38.54","unit":"kg","category":"Hortalizas","stock":0,"status":"out_of_stock","image":"https:\/\/via.placeholder.com\/640x480.png\/00ee99?text=corporis","nutritional_info":"{\"calories\":235,\"protein\":18,\"carbs\":24.6,\"fat\":4.5}","origin":"Antigua and Barbuda","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}},{"id":10,"supplier_id":1,"name":"iste","description":"Accusamus qui odio voluptatibus ipsum eligendi beatae magni.","price":"37.78","unit":"docena","category":"Otros","stock":0,"status":"out_of_stock","image":"https:\/\/via.placeholder.com\/640x480.png\/008833?text=omnis","nutritional_info":"{\"calories\":200,\"protein\":24.2,\"carbs\":51.1,\"fat\":4.3}","origin":"Mexico","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}}],"pagination":{"total":118,"per_page":10,"current_page":1,"last_page":12}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/products/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display the specified product.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"data":{"id":1,"supplier_id":1,"name":"repellendus","description":"Nostrum vero voluptatem quis nam.","price":"43.19","unit":"kg","category":"Tub\u00e9rculos","stock":368,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/00ffdd?text=et","nutritional_info":"{\"calories\":278,\"protein\":1,\"carbs\":56.6,\"fat\":15.6}","origin":"San Marino","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null,"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
         description: null
         custom: []
     responseFields: []
@@ -248,13 +670,13 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/categorias
+    uri: api/products
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Store a newly created product in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -266,9 +688,9 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      nombre:
-        name: nombre
-        description: 'Must not be greater than 255 characters.'
+      name:
+        name: name
+        description: validation.max.
         required: true
         example: b
         type: string
@@ -276,19 +698,95 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
-      descripcion:
-        name: descripcion
+      description:
+        name: description
         description: ''
         required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      price:
+        name: price
+        description: validation.min.
+        required: true
+        example: 60
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      unit:
+        name: unit
+        description: validation.max.
+        required: true
+        example: d
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category:
+        name: category
+        description: validation.max.
+        required: true
+        example: l
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      stock:
+        name: stock
+        description: validation.min.
+        required: true
+        example: 9
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      supplier_id:
+        name: supplier_id
+        description: 'The <code>id</code> of an existing record in the suppliers table.'
+        required: true
         example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      nutritional_info:
+        name: nutritional_info
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      origin:
+        name: origin
+        description: validation.max.
+        required: false
+        example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      nombre: b
-      descripcion: architecto
+      name: b
+      description: 'Eius et animi quos velit et.'
+      price: 60
+      unit: d
+      category: l
+      stock: 9
+      supplier_id: architecto
+      origin: 'n'
     fileParameters: []
     responses: []
     responseFields: []
@@ -299,66 +797,14 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: 'api/categorias/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the categoria.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 404
-        content: '{"message":"Categor\u00eda no encontrada"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - PUT
-      - PATCH
-    uri: 'api/categorias/{id}'
+    uri: 'api/products/{id}'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Update the specified product in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -368,42 +814,131 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the categoria.'
+        description: 'The ID of the product.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      nombre:
-        name: nombre
-        description: 'Must not be greater than 255 characters.'
-        required: true
+      name:
+        name: name
+        description: validation.max.
+        required: false
         example: b
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      descripcion:
-        name: descripcion
+      description:
+        name: description
         description: ''
         required: false
-        example: architecto
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      price:
+        name: price
+        description: validation.min.
+        required: false
+        example: 60
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      unit:
+        name: unit
+        description: validation.max.
+        required: false
+        example: d
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category:
+        name: category
+        description: validation.max.
+        required: false
+        example: l
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      stock:
+        name: stock
+        description: validation.min.
+        required: false
+        example: 9
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: false
+        example: active
+        type: string
+        enumValues:
+          - active
+          - inactive
+          - out_of_stock
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      supplier_id:
+        name: supplier_id
+        description: 'The <code>id</code> of an existing record in the suppliers table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      nutritional_info:
+        name: nutritional_info
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      origin:
+        name: origin
+        description: validation.max.
+        required: false
+        example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      nombre: b
-      descripcion: architecto
+      name: b
+      description: 'Eius et animi quos velit et.'
+      price: 60
+      unit: d
+      category: l
+      stock: 9
+      status: active
+      origin: 'n'
     fileParameters: []
     responses: []
     responseFields: []
@@ -415,13 +950,13 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/categorias/{id}'
+    uri: 'api/products/{id}'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Remove the specified product from storage.'
       description: ''
       authenticated: false
       custom: []
@@ -431,16 +966,16 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the categoria.'
+        description: 'The ID of the product.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -455,14 +990,196 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: api/productos
+      - POST
+    uri: 'api/products/{id}/image'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Upload product image.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      image:
+        name: image
+        description: 'validation.image validation.max.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters: []
+    fileParameters:
+      image: null
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/products/categories
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get all available product categories.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{"success":false,"message":"Producto no encontrado."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/products/{id}/stock'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update product stock.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      stock:
+        name: stock
+        description: validation.min.
+        required: true
+        example: 27
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      stock: 27
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/products/low-stock
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get products with low stock.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{"success":false,"message":"Producto no encontrado."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/suppliers
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a listing of the suppliers with pagination and search.'
       description: ''
       authenticated: false
       custom: []
@@ -479,12 +1196,61 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[]'
+        content: '{"success":true,"data":[{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null},{"id":2,"name":"Hyatt PLC","contact_person":"Mrs. Marjorie Armstrong Sr.","email":"mhodkiewicz@oconnell.com","phone":"1-757-619-0199","address":"198 Ford Mill\nHailiemouth, SC 08489-5273","tax_id":"J-63218213","payment_terms":55,"notes":null,"status":true,"created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":3,"name":"Tromp, Emmerich and McDermott","contact_person":"Virginia Jones DVM","email":"nconn@schiller.biz","phone":"+1 (805) 564-3920","address":"22794 Rempel Pike\nEast Abe, SD 56228","tax_id":"J-1668870","payment_terms":72,"notes":"Ut eos eos non ut eum voluptatem quo unde. Eaque sunt tempore aut vel voluptatem qui velit. Atque facere et dolor nobis id. Qui repudiandae cupiditate optio eos maxime. Eaque est et numquam aut commodi.","status":true,"created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":4,"name":"Ritchie, Hermann and Hodkiewicz","contact_person":"Miss Kimberly Medhurst","email":"ryan.elliott@keeling.info","phone":"864.420.2407","address":"9835 Larkin Coves\nElijahton, TN 13006-6143","tax_id":"J-47665881","payment_terms":50,"notes":"Consequuntur tenetur saepe ducimus aut. Voluptatibus in est nisi hic. Sunt ut voluptatum enim ipsam. Repellendus est sed quia magni nostrum facilis mollitia.","status":true,"created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":5,"name":"Ebert, Beahan and Larkin","contact_person":"Devan Nolan Jr.","email":"jacklyn01@luettgen.biz","phone":"+1-936-730-9272","address":"969 Bret Place Suite 544\nSouth Hildegardhaven, WA 99608","tax_id":"J-48163811","payment_terms":40,"notes":null,"status":true,"created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":6,"name":"Cummings-Herman","contact_person":"Neha Frami","email":"ursula.funk@sanford.com","phone":"1-641-843-1898","address":"3857 Franecki Corner Suite 878\nNew Krystinachester, CA 50812-2998","tax_id":"J-17790708","payment_terms":29,"notes":"Quas quaerat incidunt mollitia provident sed. Perferendis consequatur illum nihil rerum alias suscipit reprehenderit. Et maxime repellat ex nostrum id. Sit distinctio tenetur eius autem. Quo ducimus debitis eos nihil cumque.","status":false,"created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":7,"name":"Wyman, Feest and Terry","contact_person":"Kenna Kulas","email":"gcruickshank@lindgren.biz","phone":"+1.863.991.7839","address":"304 Jermey Burg\nCadenfort, MN 03189-3691","tax_id":"J-98443076","payment_terms":45,"notes":null,"status":true,"created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":8,"name":"Ernser, Koss and Hane","contact_person":"Zena Wolf","email":"conroy.elizabeth@marks.info","phone":"559-318-6104","address":"6106 Gutmann Brook\nJayneside, AR 87021","tax_id":"J-52360217","payment_terms":87,"notes":"Aut quia dolores deleniti. Error consectetur sint repellendus et deserunt. Excepturi error voluptatem fugit quam rerum cupiditate. Non officia ut voluptas cupiditate quam maxime dolores.","status":true,"created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":9,"name":"O''Conner and Sons","contact_person":"Mr. Edmond Baumbach MD","email":"xaltenwerth@reinger.com","phone":"+1.628.251.5901","address":"831 Leuschke Coves\nPort Joaquinbury, OR 59818","tax_id":"J-82741976","payment_terms":15,"notes":"Dolorem nulla ut quo quis eius odio incidunt saepe. Officiis est excepturi facilis est. Quia repellat est libero nemo modi molestias corporis.","status":true,"created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":10,"name":"Breitenberg-Torphy","contact_person":"Rosella Wuckert","email":"kacey55@aufderhar.net","phone":"820-434-3445","address":"78838 Allie Dam Suite 967\nVerniceview, TN 83270","tax_id":"J-54614280","payment_terms":59,"notes":null,"status":true,"created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null}],"pagination":{"total":10,"per_page":10,"current_page":1,"last_page":1}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/suppliers/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display the specified supplier.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the supplier.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"data":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582","address":"864 Eulah Plain\nSouth Eliasview, IL 37733","tax_id":"J-44882877","payment_terms":76,"notes":"Qui laborum itaque eaque consequuntur consequatur nihil provident. Magnam rem nisi et ipsa laudantium dignissimos. Rem cum explicabo porro deleniti laborum.","status":true,"created_at":"2025-06-03T03:55:07.000000Z","updated_at":"2025-06-03T03:55:07.000000Z","deleted_at":null,"products":[{"id":1,"supplier_id":1,"name":"repellendus","description":"Nostrum vero voluptatem quis nam.","price":"43.19","unit":"kg","category":"Tub\u00e9rculos","stock":368,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/00ffdd?text=et","nutritional_info":"{\"calories\":278,\"protein\":1,\"carbs\":56.6,\"fat\":15.6}","origin":"San Marino","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":2,"supplier_id":1,"name":"eos","description":"Omnis hic nesciunt illo blanditiis saepe magni.","price":"42.12","unit":"kg","category":"Verduras","stock":0,"status":"out_of_stock","image":null,"nutritional_info":"{\"calories\":422,\"protein\":11.7,\"carbs\":10.4,\"fat\":2.4}","origin":"Bermuda","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":3,"supplier_id":1,"name":"ratione","description":"Quidem iusto sunt ut praesentium.","price":"89.16","unit":"g","category":"Otros","stock":299,"status":"active","image":null,"nutritional_info":"{\"calories\":365,\"protein\":22.2,\"carbs\":85,\"fat\":11.2}","origin":"Macedonia","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":4,"supplier_id":1,"name":"itaque","description":"Amet iste quia laboriosam magnam.","price":"52.85","unit":"unidad","category":"Otros","stock":56,"status":"active","image":null,"nutritional_info":"{\"calories\":41,\"protein\":2.3,\"carbs\":29.2,\"fat\":15.7}","origin":"Mongolia","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":5,"supplier_id":1,"name":"ipsa","description":"Iure soluta dolorem incidunt sit occaecati.","price":"30.43","unit":"g","category":"Frutas","stock":852,"status":"active","image":null,"nutritional_info":"{\"calories\":20,\"protein\":9.3,\"carbs\":3.8,\"fat\":14.2}","origin":"Switzerland","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":6,"supplier_id":1,"name":"quam","description":"Voluptatum eos quaerat nihil magnam.","price":"81.59","unit":"lb","category":"Frutas","stock":804,"status":"active","image":null,"nutritional_info":"{\"calories\":443,\"protein\":9.4,\"carbs\":81.1,\"fat\":10.3}","origin":"Myanmar","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":7,"supplier_id":1,"name":"ipsam","description":"Mollitia in id laudantium suscipit magnam asperiores qui.","price":"11.85","unit":"kg","category":"Frutas","stock":861,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/0077dd?text=sint","nutritional_info":"{\"calories\":276,\"protein\":21.3,\"carbs\":11.9,\"fat\":10.1}","origin":"Iran","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":8,"supplier_id":1,"name":"enim","description":"Et vel maiores id assumenda molestiae placeat.","price":"93.17","unit":"unidad","category":"Hortalizas","stock":783,"status":"active","image":null,"nutritional_info":"{\"calories\":407,\"protein\":12.7,\"carbs\":53,\"fat\":3.9}","origin":"Namibia","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":9,"supplier_id":1,"name":"sequi","description":"Praesentium sed est et ratione.","price":"38.54","unit":"kg","category":"Hortalizas","stock":0,"status":"out_of_stock","image":"https:\/\/via.placeholder.com\/640x480.png\/00ee99?text=corporis","nutritional_info":"{\"calories\":235,\"protein\":18,\"carbs\":24.6,\"fat\":4.5}","origin":"Antigua and Barbuda","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":10,"supplier_id":1,"name":"iste","description":"Accusamus qui odio voluptatibus ipsum eligendi beatae magni.","price":"37.78","unit":"docena","category":"Otros","stock":0,"status":"out_of_stock","image":"https:\/\/via.placeholder.com\/640x480.png\/008833?text=omnis","nutritional_info":"{\"calories\":200,\"protein\":24.2,\"carbs\":51.1,\"fat\":4.3}","origin":"Mexico","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":11,"supplier_id":1,"name":"nostrum","description":"Ea quis illo odit ullam nulla aspernatur.","price":"53.08","unit":"docena","category":"Verduras","stock":946,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/0000aa?text=quis","nutritional_info":"{\"calories\":404,\"protein\":3.2,\"carbs\":22.1,\"fat\":11.3}","origin":"Cape Verde","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":12,"supplier_id":1,"name":"vel","description":"Autem odio provident molestiae necessitatibus qui vel.","price":"30.11","unit":"lb","category":"Frutas","stock":1,"status":"low_stock","image":null,"nutritional_info":"{\"calories\":359,\"protein\":22.3,\"carbs\":65.5,\"fat\":6.6}","origin":"Falkland Islands (Malvinas)","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":13,"supplier_id":1,"name":"ut","description":"Quod iste id ab est optio amet.","price":"98.97","unit":"docena","category":"Hortalizas","stock":1000,"status":"active","image":null,"nutritional_info":"{\"calories\":341,\"protein\":7.6,\"carbs\":89.6,\"fat\":8.1}","origin":"Morocco","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":14,"supplier_id":1,"name":"quos","description":"Est sed magni optio totam esse saepe fugit.","price":"12.63","unit":"unidad","category":"Verduras","stock":489,"status":"active","image":null,"nutritional_info":"{\"calories\":221,\"protein\":19.9,\"carbs\":59.6,\"fat\":15}","origin":"Mali","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":15,"supplier_id":1,"name":"fuga","description":"Cupiditate iusto aut et necessitatibus quis consequatur commodi.","price":"88.02","unit":"lb","category":"Hortalizas","stock":905,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/00ddaa?text=debitis","nutritional_info":"{\"calories\":198,\"protein\":14.3,\"carbs\":5.9,\"fat\":13.3}","origin":"Cameroon","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":99,"supplier_id":1,"name":"deleniti","description":"Voluptas accusamus aliquam et vel sit error sunt.","price":"93.62","unit":"lb","category":"Frutas","stock":670,"status":"active","image":null,"nutritional_info":"{\"calories\":382,\"protein\":5.7,\"carbs\":50.9,\"fat\":18.2}","origin":"Marshall Islands","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":103,"supplier_id":1,"name":"esse","description":"Aut maxime totam laboriosam delectus officiis est consequuntur.","price":"37.12","unit":"lb","category":"Verduras","stock":99,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/0044bb?text=a","nutritional_info":"{\"calories\":420,\"protein\":26.5,\"carbs\":25.9,\"fat\":14}","origin":"Dominica","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":117,"supplier_id":1,"name":"dolore","description":"Consectetur est harum quisquam sequi consequatur.","price":"77.64","unit":"g","category":"Tub\u00e9rculos","stock":181,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/00ee22?text=velit","nutritional_info":"{\"calories\":152,\"protein\":17.7,\"carbs\":13.2,\"fat\":13.8}","origin":"Eritrea","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null}]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
         description: null
         custom: []
     responseFields: []
@@ -496,13 +1262,13 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/productos
+    uri: api/suppliers
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Store a newly created supplier in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -514,9 +1280,9 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      nombre:
-        name: nombre
-        description: 'Must not be greater than 255 characters.'
+      name:
+        name: name
+        description: validation.max.
         required: true
         example: b
         type: string
@@ -524,8 +1290,68 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
-      descripcion:
-        name: descripcion
+      contact_person:
+        name: contact_person
+        description: validation.max.
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: validation.email.
+        required: true
+        example: ashly64@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: validation.max.
+        required: true
+        example: vdljnikhwaykcmyu
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      address:
+        name: address
+        description: validation.max.
+        required: true
+        example: w
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      tax_id:
+        name: tax_id
+        description: validation.max.
+        required: false
+        example: p
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      payment_terms:
+        name: payment_terms
+        description: validation.min.
+        required: false
+        example: 61
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      notes:
+        name: notes
         description: ''
         required: false
         example: architecto
@@ -534,42 +1360,26 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      precio:
-        name: precio
-        description: 'Must be at least 0.'
-        required: true
-        example: 39
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      stock:
-        name: stock
-        description: 'Must be at least 0.'
-        required: true
-        example: 84
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      categoria_id:
-        name: categoria_id
-        description: 'The <code>id</code> of an existing record in the categorias table.'
-        required: true
-        example: architecto
-        type: string
+      status:
+        name: status
+        description: ''
+        required: false
+        example: true
+        type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      nombre: b
-      descripcion: architecto
-      precio: 39
-      stock: 84
-      categoria_id: architecto
+      name: b
+      contact_person: 'n'
+      email: ashly64@example.com
+      phone: vdljnikhwaykcmyu
+      address: w
+      tax_id: p
+      payment_terms: 61
+      notes: architecto
+      status: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -580,66 +1390,14 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: 'api/productos/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the producto.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 404
-        content: '{"message":"Producto no encontrado"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - PUT
-      - PATCH
-    uri: 'api/productos/{id}'
+    uri: 'api/suppliers/{id}'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Update the specified supplier in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -649,22 +1407,22 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the producto.'
+        description: 'The ID of the supplier.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      nombre:
-        name: nombre
-        description: 'Must not be greater than 255 characters.'
+      name:
+        name: name
+        description: validation.max.
         required: true
         example: b
         type: string
@@ -672,8 +1430,68 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
-      descripcion:
-        name: descripcion
+      contact_person:
+        name: contact_person
+        description: validation.max.
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: validation.max.
+        required: true
+        example: gzmiyvdljnikhway
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      address:
+        name: address
+        description: validation.max.
+        required: true
+        example: k
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      tax_id:
+        name: tax_id
+        description: validation.max.
+        required: false
+        example: c
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      payment_terms:
+        name: payment_terms
+        description: validation.min.
+        required: false
+        example: 38
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      notes:
+        name: notes
         description: ''
         required: false
         example: architecto
@@ -682,42 +1500,25 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      precio:
-        name: precio
-        description: 'Must be at least 0.'
-        required: true
-        example: 39
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      stock:
-        name: stock
-        description: 'Must be at least 0.'
-        required: true
-        example: 84
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      categoria_id:
-        name: categoria_id
-        description: 'The <code>id</code> of an existing record in the categorias table.'
-        required: true
-        example: architecto
-        type: string
+      status:
+        name: status
+        description: ''
+        required: false
+        example: false
+        type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      nombre: b
-      descripcion: architecto
-      precio: 39
-      stock: 84
-      categoria_id: architecto
+      name: b
+      contact_person: 'n'
+      phone: gzmiyvdljnikhway
+      address: k
+      tax_id: c
+      payment_terms: 38
+      notes: architecto
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -729,13 +1530,13 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/productos/{id}'
+    uri: 'api/suppliers/{id}'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Remove the specified supplier from storage.'
       description: ''
       authenticated: false
       custom: []
@@ -745,16 +1546,16 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the producto.'
+        description: 'The ID of the supplier.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -770,13 +1571,104 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/proveedores
+    uri: 'api/suppliers/{id}/products'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Get products for a specific supplier.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the supplier.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"data":{"supplier":{"id":1,"name":"Hettinger, Herzog and Harber","contact_person":"Mrs. Lavonne Kub Sr.","email":"cary13@towne.net","phone":"1-765-617-1582"},"products":[{"id":1,"supplier_id":1,"name":"repellendus","description":"Nostrum vero voluptatem quis nam.","price":"43.19","unit":"kg","category":"Tub\u00e9rculos","stock":368,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/00ffdd?text=et","nutritional_info":"{\"calories\":278,\"protein\":1,\"carbs\":56.6,\"fat\":15.6}","origin":"San Marino","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":2,"supplier_id":1,"name":"eos","description":"Omnis hic nesciunt illo blanditiis saepe magni.","price":"42.12","unit":"kg","category":"Verduras","stock":0,"status":"out_of_stock","image":null,"nutritional_info":"{\"calories\":422,\"protein\":11.7,\"carbs\":10.4,\"fat\":2.4}","origin":"Bermuda","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":3,"supplier_id":1,"name":"ratione","description":"Quidem iusto sunt ut praesentium.","price":"89.16","unit":"g","category":"Otros","stock":299,"status":"active","image":null,"nutritional_info":"{\"calories\":365,\"protein\":22.2,\"carbs\":85,\"fat\":11.2}","origin":"Macedonia","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":4,"supplier_id":1,"name":"itaque","description":"Amet iste quia laboriosam magnam.","price":"52.85","unit":"unidad","category":"Otros","stock":56,"status":"active","image":null,"nutritional_info":"{\"calories\":41,\"protein\":2.3,\"carbs\":29.2,\"fat\":15.7}","origin":"Mongolia","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":5,"supplier_id":1,"name":"ipsa","description":"Iure soluta dolorem incidunt sit occaecati.","price":"30.43","unit":"g","category":"Frutas","stock":852,"status":"active","image":null,"nutritional_info":"{\"calories\":20,\"protein\":9.3,\"carbs\":3.8,\"fat\":14.2}","origin":"Switzerland","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":6,"supplier_id":1,"name":"quam","description":"Voluptatum eos quaerat nihil magnam.","price":"81.59","unit":"lb","category":"Frutas","stock":804,"status":"active","image":null,"nutritional_info":"{\"calories\":443,\"protein\":9.4,\"carbs\":81.1,\"fat\":10.3}","origin":"Myanmar","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":7,"supplier_id":1,"name":"ipsam","description":"Mollitia in id laudantium suscipit magnam asperiores qui.","price":"11.85","unit":"kg","category":"Frutas","stock":861,"status":"active","image":"https:\/\/via.placeholder.com\/640x480.png\/0077dd?text=sint","nutritional_info":"{\"calories\":276,\"protein\":21.3,\"carbs\":11.9,\"fat\":10.1}","origin":"Iran","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":8,"supplier_id":1,"name":"enim","description":"Et vel maiores id assumenda molestiae placeat.","price":"93.17","unit":"unidad","category":"Hortalizas","stock":783,"status":"active","image":null,"nutritional_info":"{\"calories\":407,\"protein\":12.7,\"carbs\":53,\"fat\":3.9}","origin":"Namibia","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":9,"supplier_id":1,"name":"sequi","description":"Praesentium sed est et ratione.","price":"38.54","unit":"kg","category":"Hortalizas","stock":0,"status":"out_of_stock","image":"https:\/\/via.placeholder.com\/640x480.png\/00ee99?text=corporis","nutritional_info":"{\"calories\":235,\"protein\":18,\"carbs\":24.6,\"fat\":4.5}","origin":"Antigua and Barbuda","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null},{"id":10,"supplier_id":1,"name":"iste","description":"Accusamus qui odio voluptatibus ipsum eligendi beatae magni.","price":"37.78","unit":"docena","category":"Otros","stock":0,"status":"out_of_stock","image":"https:\/\/via.placeholder.com\/640x480.png\/008833?text=omnis","nutritional_info":"{\"calories\":200,\"protein\":24.2,\"carbs\":51.1,\"fat\":4.3}","origin":"Mexico","created_at":"2025-06-03T03:55:08.000000Z","updated_at":"2025-06-03T03:55:08.000000Z","deleted_at":null}]},"pagination":{"total":18,"per_page":10,"current_page":1,"last_page":2}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/suppliers/{id}/toggle-status'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Toggle the supplier's status."
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the supplier.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/orders
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a listing of the orders with pagination.'
       description: ''
       authenticated: false
       custom: []
@@ -800,8 +1692,7 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
@@ -812,88 +1703,14 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
-    uri: api/proveedores
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      nombre:
-        name: nombre
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      contacto:
-        name: contacto
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      telefono:
-        name: telefono
-        description: 'Must not be greater than 20 characters.'
-        required: false
-        example: gzmiyvdljnikhway
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      direccion:
-        name: direccion
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: k
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      nombre: b
-      contacto: 'n'
-      telefono: gzmiyvdljnikhway
-      direccion: k
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - GET
-    uri: 'api/proveedores/{id}'
+    uri: 'api/orders/{id}'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Display the specified order.'
       description: ''
       authenticated: false
       custom: []
@@ -903,7 +1720,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the proveedore.'
+        description: 'The ID of the order.'
         required: true
         example: architecto
         type: string
@@ -928,175 +1745,7 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PUT
-      - PATCH
-    uri: 'api/proveedores/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the proveedore.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: architecto
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      nombre:
-        name: nombre
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      contacto:
-        name: contacto
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      telefono:
-        name: telefono
-        description: 'Must not be greater than 20 characters.'
-        required: false
-        example: gzmiyvdljnikhway
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      direccion:
-        name: direccion
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: k
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      nombre: b
-      contacto: 'n'
-      telefono: gzmiyvdljnikhway
-      direccion: k
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/proveedores/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the proveedore.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: architecto
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/compras
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '[]'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
@@ -1108,13 +1757,13 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/compras
+    uri: api/orders
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Store a newly created order in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -1126,29 +1775,9 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      fecha:
-        name: fecha
-        description: 'Must be a valid date.'
-        required: true
-        example: '2025-05-27T02:04:19'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      proveedor_id:
-        name: proveedor_id
-        description: 'The <code>id</code> of an existing record in the proveedores table.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      detalles:
-        name: detalles
-        description: 'Must have at least 1 items.'
+      items:
+        name: items
+        description: validation.min.
         required: true
         example:
           - []
@@ -1157,9 +1786,33 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
-      'detalles[].producto_id':
-        name: 'detalles[].producto_id'
-        description: 'The <code>id</code> of an existing record in the productos table.'
+      shipping_address:
+        name: shipping_address
+        description: validation.max.
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      payment_method:
+        name: payment_method
+        description: ''
+        required: true
+        example: transfer
+        type: string
+        enumValues:
+          - credit_card
+          - debit_card
+          - cash
+          - transfer
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'items[].product_id':
+        name: 'items[].product_id'
+        description: 'The <code>id</code> of an existing record in the products table.'
         required: true
         example: architecto
         type: string
@@ -1167,9 +1820,9 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
-      'detalles[].cantidad':
-        name: 'detalles[].cantidad'
-        description: 'Must be at least 1.'
+      'items[].quantity':
+        name: 'items[].quantity'
+        description: validation.min.
         required: true
         example: 22
         type: integer
@@ -1177,24 +1830,13 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
-      'detalles[].precio_unitario':
-        name: 'detalles[].precio_unitario'
-        description: 'Must be at least 0.'
-        required: true
-        example: 84
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
     cleanBodyParameters:
-      fecha: '2025-05-27T02:04:19'
-      proveedor_id: architecto
-      detalles:
+      items:
         -
-          producto_id: architecto
-          cantidad: 22
-          precio_unitario: 84
+          product_id: architecto
+          quantity: 22
+      shipping_address: b
+      payment_method: transfer
     fileParameters: []
     responses: []
     responseFields: []
@@ -1205,66 +1847,14 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: 'api/compras/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the compra.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 404
-        content: '{"message":"Compra no encontrada"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PUT
       - PATCH
-    uri: 'api/compras/{id}'
+    uri: 'api/orders/{id}/status'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Update the specified order status.'
       description: ''
       authenticated: false
       custom: []
@@ -1274,32 +1864,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the compra.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      fecha:
-        name: fecha
-        description: 'Must be a valid date.'
-        required: true
-        example: '2025-05-27T02:04:19'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      proveedor_id:
-        name: proveedor_id
-        description: 'The <code>id</code> of an existing record in the proveedores table.'
+        description: 'The ID of the order.'
         required: true
         example: architecto
         type: string
@@ -1307,50 +1872,28 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
-    cleanBodyParameters:
-      fecha: '2025-05-27T02:04:19'
-      proveedor_id: architecto
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/compras/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the compra.'
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      status:
+        name: status
+        description: ''
         required: true
-        example: 16
-        type: integer
-        enumValues: []
+        example: pending
+        type: string
+        enumValues:
+          - pending
+          - processing
+          - shipped
+          - delivered
+          - cancelled
         exampleWasSpecified: false
         nullable: false
         custom: []
-    cleanUrlParameters:
-      id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    cleanBodyParameters:
+      status: pending
     fileParameters: []
     responses: []
     responseFields: []
@@ -1362,13 +1905,13 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/ventas
+    uri: api/orders/my-orders
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: "Get the authenticated user's orders."
       description: ''
       authenticated: false
       custom: []
@@ -1392,8 +1935,7 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
@@ -1404,49 +1946,24 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
-    uri: api/ventas
+      - PATCH
+    uri: 'api/orders/{id}/cancel'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Cancel the specified order.'
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      fecha:
-        name: fecha
-        description: 'Must be a valid date.'
-        required: true
-        example: '2025-05-27T02:04:19'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      detalles:
-        name: detalles
-        description: 'Must have at least 1 items.'
-        required: true
-        example:
-          - []
-        type: 'object[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      'detalles[].producto_id':
-        name: 'detalles[].producto_id'
-        description: 'The <code>id</code> of an existing record in the productos table.'
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the order.'
         required: true
         example: architecto
         type: string
@@ -1454,33 +1971,12 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
-      'detalles[].cantidad':
-        name: 'detalles[].cantidad'
-        description: 'Must be at least 1.'
-        required: true
-        example: 22
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      'detalles[].precio_unitario':
-        name: 'detalles[].precio_unitario'
-        description: 'Must be at least 0.'
-        required: true
-        example: 84
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      fecha: '2025-05-27T02:04:19'
-      detalles:
-        -
-          producto_id: architecto
-          cantidad: 22
-          precio_unitario: 84
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []
@@ -1492,13 +1988,97 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/ventas/{id}'
+    uri: api/orders/stats
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Get order statistics.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a listing of the users with pagination.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display the specified user.'
       description: ''
       authenticated: false
       custom: []
@@ -1508,7 +2088,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the venta.'
+        description: 'The ID of the user.'
         required: true
         example: architecto
         type: string
@@ -1533,8 +2113,7 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
@@ -1546,14 +2125,13 @@ endpoints:
   -
     httpMethods:
       - PUT
-      - PATCH
-    uri: 'api/ventas/{id}'
+    uri: 'api/users/{id}'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Update the specified user in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -1563,7 +2141,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the venta.'
+        description: 'The ID of the user.'
         required: true
         example: architecto
         type: string
@@ -1576,18 +2154,50 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      fecha:
-        name: fecha
-        description: 'Must be a valid date.'
-        required: true
-        example: '2025-05-27T02:04:19'
+      name:
+        name: name
+        description: validation.max.
+        required: false
+        example: b
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
+      email:
+        name: email
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: validation.max.
+        required: false
+        example: ngzmiyvdljnikhwa
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address:
+        name: address
+        description: validation.max.
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      fecha: '2025-05-27T02:04:19'
+      name: b
+      phone: ngzmiyvdljnikhwa
+      address: 'y'
     fileParameters: []
     responses: []
     responseFields: []
@@ -1599,13 +2209,13 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/ventas/{id}'
+    uri: 'api/users/{id}'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Remove the specified user from storage.'
       description: ''
       authenticated: false
       custom: []
@@ -1615,7 +2225,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the venta.'
+        description: 'The ID of the user.'
         required: true
         example: architecto
         type: string
@@ -1629,6 +2239,60 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/users/{id}/role'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Change user role.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      role:
+        name: role
+        description: ''
+        required: true
+        example: admin
+        type: string
+        enumValues:
+          - admin
+          - cliente
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      role: admin
     fileParameters: []
     responses: []
     responseFields: []
