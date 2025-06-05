@@ -79,6 +79,7 @@ class ProductoController extends Controller
             'supplier_id' => 'required|exists:suppliers,id',
             'nutritional_info' => 'nullable|array',
             'origin' => 'nullable|string|max:100',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -87,6 +88,11 @@ class ProductoController extends Controller
                 'error' => 'Validation Error',
                 'message' => $validator->errors()
             ], 422);
+        }
+
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('products', 'public');
         }
 
         $product = Product::create([
@@ -100,6 +106,7 @@ class ProductoController extends Controller
             'supplier_id' => $request->supplier_id,
             'nutritional_info' => $request->nutritional_info,
             'origin' => $request->origin,
+            'image' => $imagePath,
         ]);
 
         return response()->json([
@@ -118,7 +125,7 @@ class ProductoController extends Controller
     public function show($id)
     {
         $product = Product::with('supplier')->find($id);
-        
+
         if (!$product) {
             return response()->json([
                 'success' => false,
@@ -142,7 +149,7 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
-        
+
         if (!$product) {
             return response()->json([
                 'success' => false,
@@ -161,6 +168,7 @@ class ProductoController extends Controller
             'supplier_id' => 'sometimes|exists:suppliers,id',
             'nutritional_info' => 'nullable|array',
             'origin' => 'nullable|string|max:100',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -171,7 +179,17 @@ class ProductoController extends Controller
             ], 422);
         }
 
-        $product->update($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('image')) {
+            // Eliminar imagen anterior si existe
+            if ($product->image) {
+                Storage::disk('public')->delete($product->image);
+            }
+            $data['image'] = $request->file('image')->store('products', 'public');
+        }
+
+        $product->update($data);
 
         return response()->json([
             'success' => true,
@@ -189,7 +207,7 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        
+
         if (!$product) {
             return response()->json([
                 'success' => false,
@@ -228,7 +246,7 @@ class ProductoController extends Controller
     public function uploadImage(Request $request, $id)
     {
         $product = Product::find($id);
-        
+
         if (!$product) {
             return response()->json([
                 'success' => false,
@@ -286,7 +304,7 @@ class ProductoController extends Controller
     public function updateStock(Request $request, $id)
     {
         $product = Product::find($id);
-        
+
         if (!$product) {
             return response()->json([
                 'success' => false,
@@ -316,7 +334,7 @@ class ProductoController extends Controller
     public function lowStock(Request $request)
     {
         $threshold = $request->input('threshold', 10);
-        
+
         $products = Product::where('stock', '<=', $threshold)
             ->orderBy('stock')
             ->get();
