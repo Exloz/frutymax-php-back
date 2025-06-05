@@ -6,9 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 
 class ProductoController extends Controller
 {
@@ -49,6 +47,19 @@ class ProductoController extends Controller
 
         $products = $query->paginate($perPage);
 
+        // Transform the products collection to rename image to imageUrl
+        $transformedProducts = $products->getCollection()->map(function ($product) {
+            $productArray = $product->toArray();
+            if (isset($productArray['image'])) {
+                $productArray['imageUrl'] = $productArray['image'];
+                unset($productArray['image']);
+            }
+            return $productArray;
+        });
+
+        // Set the transformed collection back to the paginator
+        $products->setCollection($transformedProducts);
+
         return response()->json([
             'success' => true,
             'data' => $products->items(),
@@ -69,6 +80,9 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->has('imageUrl')) {
+            $request->merge(['image' => $request->input('imageUrl')]);
+        }
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -79,7 +93,7 @@ class ProductoController extends Controller
             'supplier_id' => 'required|exists:suppliers,id',
             'nutritional_info' => 'nullable|array',
             'origin' => 'nullable|string|max:100',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|url|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -88,11 +102,6 @@ class ProductoController extends Controller
                 'error' => 'Validation Error',
                 'message' => $validator->errors()
             ], 422);
-        }
-
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('products', 'public');
         }
 
         $product = Product::create([
@@ -106,7 +115,7 @@ class ProductoController extends Controller
             'supplier_id' => $request->supplier_id,
             'nutritional_info' => $request->nutritional_info,
             'origin' => $request->origin,
-            'image' => $imagePath,
+            'image' => $request->image,
         ]);
 
         return response()->json([
@@ -156,7 +165,9 @@ class ProductoController extends Controller
                 'message' => 'Producto no encontrado.'
             ], 404);
         }
-
+        if ($request->has('imageUrl')) {
+            $request->merge(['image' => $request->input('imageUrl')]);
+        }
         $validator = Validator::make($request->all(), [
             'name' => 'sometimes|string|max:255',
             'description' => 'nullable|string',
@@ -168,7 +179,7 @@ class ProductoController extends Controller
             'supplier_id' => 'sometimes|exists:suppliers,id',
             'nutritional_info' => 'nullable|array',
             'origin' => 'nullable|string|max:100',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|url|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -180,14 +191,6 @@ class ProductoController extends Controller
         }
 
         $data = $request->all();
-
-        if ($request->hasFile('image')) {
-            // Eliminar imagen anterior si existe
-            if ($product->image) {
-                Storage::disk('public')->delete($product->image);
-            }
-            $data['image'] = $request->file('image')->store('products', 'public');
-        }
 
         $product->update($data);
 
@@ -223,56 +226,11 @@ class ProductoController extends Controller
             ], 400);
         }
 
-        // Delete product image if exists
-        if ($product->image) {
-            Storage::delete($product->image);
-        }
-
         $product->delete();
 
         return response()->json([
             'success' => true,
             'message' => 'Producto eliminado correctamente.'
-        ]);
-    }
-
-    /**
-     * Upload product image.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function uploadImage(Request $request, $id)
-    {
-        $product = Product::find($id);
-
-        if (!$product) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Producto no encontrado.'
-            ], 404);
-        }
-
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        // Delete old image if exists
-        if ($product->image) {
-            Storage::delete($product->image);
-        }
-
-        // Store new image
-        $path = $request->file('image')->store('products', 'public');
-        $product->update(['image' => $path]);
-
-        return response()->json([
-            'success' => true,
-            'data' => [
-                'image_url' => Storage::url($path)
-            ],
-            'message' => 'Imagen subida correctamente.'
         ]);
     }
 
